@@ -159,7 +159,7 @@ bot.onText(/^\/list(@[\w_]+)?$/, async (msg) => {
 
 bot.on('message', async (msg) => {
     const chatId = msg.chat.id;
-    if (!isUserAllowed(msg.from.id) || msg.text.startsWith('/')) {
+    if (!isUserAllowed(msg.from.id) || (msg.text && msg.text.startsWith('/'))) {
         return;
     }
     if (!addingMode) {
